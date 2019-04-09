@@ -1,0 +1,31 @@
+#include<cmath>
+#include <iostream>
+using namespace std;
+long long int function3(long long int n) 
+{ 
+    long long int maxp = -1;  
+    while (n % 2 == 0) { 
+        maxp = 2; 
+        n >>= 1;
+    } 
+    for (long long int i = 3; i <= sqrt(n); i += 2) { 
+        while (n % i == 0) { 
+            maxp = i; 
+            n = n / i; 
+        } 
+    } 
+    if (n > 2) 
+        maxp = n; 
+    return maxp; 
+}
+int main(){
+    long long int t;
+    cin >> t;
+    for(int i = 0; i < t; i++){
+        long long int n;
+        cin >> n;
+        cout << function3(n)<<endl;
+    }
+    return 0;
+}
+
