@@ -1,0 +1,36 @@
+// C++ implemenattion of the above approach 
+#include <bits/stdc++.h> 
+using namespace std; 
+
+// Function to find the maximum product 
+void maxProductSum(string str, int m) 
+{ 
+    int n = str.length(); 
+    int maxProd = INT_MIN, maxSum = INT_MIN; 
+    for (int i = 0; i < n - m; i++) { 
+        int product = 1, sum = 0; 
+
+        for (int j = i; j < m + i; j++) { 
+            product = product * (str[j] - '0'); 
+            sum = sum + (str[j] - '0'); 
+        } 
+
+        maxProd = max(maxProd, product); 
+        maxSum = max(maxSum, sum); 
+    } 
+    cout << maxProd << endl; 
+} 
+
+
+int main() 
+{ 
+    int t;
+    cin >> t;
+    while(t--){
+    string str;
+    int n,m;
+    cin >> n >> m;
+    cin >> str; 
+
+    maxProductSum(str, m); 
+}} 
